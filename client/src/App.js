@@ -11,6 +11,7 @@ import { useSelector } from 'react-redux';
 
 import Home from "./containers/Home/Home";
 import Setting from "./containers/Setting/Setting";
+import ApiGetter from  "./containers/ApiGetter/ApiGetter"
 
 import MainLayout from "./layouts/MainLayout";
 import EmptyLayout from "./layouts/EmptyLayout";
@@ -59,6 +60,7 @@ export default function App() {
             <Switch>
               <DashboardRoute path="/dashboard" component={Home} />
               <DashboardRoute path="/setting" component={Setting} />
+              <DashboardRoute path="/apigetter" component={ApiGetter} />
               <DashboardRoute exact path="/" component={Home} />
               <EmptyRoute component={NotFound} />
             </Switch>

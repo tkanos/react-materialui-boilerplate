@@ -4,6 +4,7 @@ import cookieParser from 'cookie-parser'
 import bodyParser from 'body-parser'
 import api from './api/index.js'
 import setCacheHeader from './middlewares/cache-header.js'
+import setCorsHeader from './middlewares/cors.js'
 import five00 from './middlewares/500.js'
 
 import {Tracer, ExplicitContext, ConsoleRecorder} from 'zipkin';
@@ -31,6 +32,7 @@ app
   .use(bodyParser.urlencoded({ extended: false }))
   .use(bodyParser.json())
   .use(setCacheHeader)
+  .use(setCorsHeader)
   .use(zipkinMiddleware({tracer}))
   .use('/api', api)
   // Middlewares: after routes
